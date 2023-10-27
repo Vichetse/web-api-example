@@ -1,0 +1,47 @@
+﻿{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:39214",
+      "sslPort": 44312
+    }
+  },
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "http://localhost:5000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "JWT_ISSUER": "https://dev.eventhub.one",
+        "JWT_AUDIENCE": "https://dev.eventhub.one",
+        "JWT_KEY": "ra8FXsc1Xv6FjN8cuxMDYcKeP4aQ4XRmKZyGnyhLRhuJ",
+        "BUCKET": "wedding-hub-dev",
+        "FOLDER": "sourcing/",
+        "CREDENTIAL_JSON_KEY": "{ \"type\": \"service_account\", \"project_id\": \"event-hub-807bc\", \"private_key_id\": \"c5b0da5d4d134e4c8a3d50bbdd06e5111de8f9c7\", \"private_key\": \"-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDAaLdYEe2xtUxy\\nvOyjKwJPFw/A7apy6pAeASkn9I1ZoSb0nop67ZUQf6RyEloCCUXVAfJgpkidY4LR\\n+cu1UjT1PN7yYemKoU28biXSwGlAXuSTor0EWh7ujW8Z+zdxDy58c9NRwHbljCRh\\nBHRPUzQtWIx6rKSPLyLn4AofHTrW5hhJX0UXpX5Uc42UVQMmwZlWuqfDqnSruWCK\\nfgJasb+7123Md7jrld/lbn1pIvKLYafd/k/6kX47HKZhqkdVR4xOPQkQx8bo+usO\\nCR2q3HAEA8+KZ0lS4CwYY6FfxIjlI0q/7Kpy9PeWJtACe0MjdxvjiwxYV3g2iAF/\\nWCZxQVhPAgMBAAECggEAM9ijuuAN4CpdwLcmvqr6sswgixifqtqI3gTrDaCorAOw\\nJw9HemtllO4IJlLKnSzZe9XL9X4pJ/vmBuWcHi5aJdDytHZsw1XGyCUYHQuK8PUA\\n+8VI0JDmL9q9ms8mN9li6dceFLPbdexG6zuTicJ+V0+6ft3hc9G8QqYMpCiwr7IW\\nLtuvsVj5tyojJlfEOXvJXwKH6O4bYYDzFo1BOFMHsxan+QejGEcyojyCOPTrgvkn\\nj2uMjF2GukV5Usv6pv4uywnMk6bl9gSTNk+D9EjKC5KEGPV0HtOP8co9203EJI3G\\nVMmN76sCKuIeXq4gQmwYYhnNVghmT6YHIvTuVw26LQKBgQDhaPuvbTwssa//zrTg\\n1ELSOm/lM519V6rTdW2kIHyDQNer0wHqpOQvQV2e7/flq+glKztS8RZUHNvG1vVn\\nrD9ssX+rUAlTR1lLtsmo1dwcSAvyx07dtyFV7/c3zFhKOOy7ua3Egm3cT+PUCz/J\\n9qJHPvhaFkQ2bXzOLOVag2yt0wKBgQDahTy7wSz2RvPozX22FpEWwccTUNL7qx4i\\nKel/yRarjsnud/Y6XOX+lPzOehu+FD1DSFHm8D3hI4UbStD5zDtDRw6f18lSh6rt\\nAda5E7O+rTIIvMgNB42Jlv4QNjzmcy9vc0K41oAMlXks8ArJs8JX3n2rjk8Bn5Q5\\nWHal+kDSFQKBgHBIoYcjfOQupyNgTo3obljWr0KXUY5Mi1XGmxU08ZFYTZbUB5Jh\\nDSHVB9PSacRIu904CdcpLRw9O+Vy0tAP55A3YwdtWRfY5Mxog0/NKFYWNY18Zvbe\\n8IYkgRuUeS6P6K0is0K+Tgd+7FiGOgJbDz86SPBnQxdxtsflaWKLMSntAoGARgzq\\nQEIX+MccD6g4QXQQhNwPxlhlmjnrygXnjYhYFR0MDL82FtWLAUafmE06sX9peDUp\\n1D91hsPNOseMIFfhM5sGzCTvq95D5ABv5hqzx09cN8LU2qBuNgpKXcYVVcbdEPxB\\nCmHw4JfWJZq5ypkult6DKMjQ+PNAH/YE6wZDW1UCgYEA3wYSKxLYzvVMwxYadEDh\\nYs883yFhjLJnvQMxPIZUcjUNzDRQP7pD9Gy35AfuC50YT1WubfbRoblAJtbRVmvT\\nynxktZU6eGxV0ttrlgdqc3TV0eEy7RgceeaNc7xi1MErfKSLCr0GkVsbm5xJuVnj\\n+M+m+hCYMekIcs/3XndHJpc=\\n-----END PRIVATE KEY-----\\n\", \"client_email\": \"event-hub-807bc@appspot.gserviceaccount.com\", \"client_id\": \"104550361329160251587\", \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\", \"token_uri\": \"https://oauth2.googleapis.com/token\", \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\", \"client_x509_cert_url\": \"https://www.googleapis.com/robot/v1/metadata/x509/event-hub-807bc%40appspot.gserviceaccount.com\", \"universe_domain\": \"googleapis.com\" }"
+      }
+    },
+    "https": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "https://localhost:7048;http://localhost:5002",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

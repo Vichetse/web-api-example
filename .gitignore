@@ -1,0 +1,7 @@
+/WebApi/bin/
+/WebApi/obj/
+/WebApi/Migrations/
+/WebApi/Properties/launchSettings.json
+.idea/
+.vscode/
+.DS_Store

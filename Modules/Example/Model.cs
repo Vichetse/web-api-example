@@ -1,0 +1,2 @@
+namespace WebApi.Modules.Example;
+
