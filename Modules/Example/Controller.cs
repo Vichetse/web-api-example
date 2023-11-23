@@ -28,7 +28,7 @@ public class ExampleController : MyController
 		return Ok(result);
 	}
 
-	[HttpGet("/{id:guid}")]
+	[HttpGet("{id:guid}")]
 	public IActionResult GetById(Guid id)
 	{
 		var items = _repository.GetSingle(e => e.Id == id);
@@ -37,7 +37,7 @@ public class ExampleController : MyController
 	}
 
 	[HttpPost]
-	public IActionResult Post([FromBody] GetExampleResponse insertExampleRequest)
+	public IActionResult Post([FromBody] InsertExampleRequest insertExampleRequest)
 	{
 		if (insertExampleRequest == null)
 		{
@@ -47,6 +47,44 @@ public class ExampleController : MyController
 
 		_repository.Add(items);
 		_repository.Commit();
+		return Ok();
+	}
+	[HttpPut("{id:guid}")]
+	public IActionResult Update(Guid id,[FromBody] UpdateExampleRequest change)
+	{
+		var item = _repository.GetSingle(e => e.Id == id);
+		if (item == null)
+		{
+			return NotFound("Item not found");
+		}
+		if (change.Name == null || change.Name == "" && change.Age == null || change.Age == "" && change.Gender == null || change.Gender == "" && change.Address == null || change.Address == "" && change.CountryCode == null || change.CountryCode == "")
+		{
+			change.Name = item.Name;
+			change.Age = item.Age;
+			change.Gender = item.Gender;
+			change.Address = item.Address;
+			change.CountryCode = item.CountryCode;
+		}
+		
+
+		_mapper.Map(change, item);
+		_repository.Update(item);
+		_repository.Commit();
+
+		return Ok();
+	}
+	[HttpDelete("{id:guid}")]
+	public IActionResult Delete(Guid id)
+	{
+		var item = _repository.GetSingle(e => e.Id == id);
+		if (item == null)
+		{
+			return NotFound("Item not found");
+		}
+
+		_repository.Remove(item);
+		_repository.Commit();
+
 		return Ok();
 	}
 }
