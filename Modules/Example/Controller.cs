@@ -49,6 +49,7 @@ public class ExampleController : MyController
 		_repository.Commit();
 		return Ok();
 	}
+
 	[HttpPut("{id:guid}")]
 	public IActionResult Update(Guid id,[FromBody] UpdateExampleRequest change)
 	{
@@ -57,16 +58,27 @@ public class ExampleController : MyController
 		{
 			return NotFound("Item not found");
 		}
-		if (change.Name == null || change.Name == "" && change.Age == null || change.Age == "" && change.Gender == null || change.Gender == "" && change.Address == null || change.Address == "" && change.CountryCode == null || change.CountryCode == "")
+
+		if (change.Name == null || change.Name == "")
 		{
-			change.Name = item.Name;
+			change.Name = item.Name;	
+		}
+		if (change.Age == null || change.Age == "")
+		{
 			change.Age = item.Age;
+		}
+		if (change.Gender == null || change.Gender == "")
+		{
 			change.Gender = item.Gender;
+		}
+		if (change.Address == null || change.Address == "")
+		{
 			change.Address = item.Address;
+		}
+		if (change.CountryCode == null || change.CountryCode == "")
+		{
 			change.CountryCode = item.CountryCode;
 		}
-		
-
 		_mapper.Map(change, item);
 		_repository.Update(item);
 		_repository.Commit();
