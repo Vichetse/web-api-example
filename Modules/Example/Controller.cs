@@ -20,11 +20,33 @@ public class ExampleController : MyController
 		_mapper = mapper;
 	}
 
-    [HttpGet]
-    public IActionResult Gets()
-    {
-      var items = _repository.GetAll();
-	  var result = _mapper.ProjectTo<GetExampleResponse>(items); 
-	  return Ok(result);
-    }
+	[HttpGet("")]
+	public IActionResult Get()
+	{
+		var items = _repository.GetAll();
+		var result = _mapper.ProjectTo<GetExampleResponse>(items);
+		return Ok(result);
+	}
+
+	[HttpGet("/{id:guid}")]
+	public IActionResult GetById(Guid id)
+	{
+		var items = _repository.GetSingle(e => e.Id == id);
+		var result = _mapper.Map<GetExampleResponse>(items);
+		return Ok(result);
+	}
+
+	[HttpPost]
+	public IActionResult Post([FromBody] GetExampleResponse insertExampleRequest)
+	{
+		if (insertExampleRequest == null)
+		{
+			return BadRequest("Invalid data");
+		}
+		var items = _mapper.Map<Example>(insertExampleRequest);
+
+		_repository.Add(items);
+		_repository.Commit();
+		return Ok();
+	}
 }
