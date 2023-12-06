@@ -5,7 +5,7 @@ namespace WebApi.Modules.Example;
 
 public interface IExampleRepository : IRepository<Example>
 {
-
+	
 }
 
 public class ExampleRepository : Repository<Example>, IExampleRepository

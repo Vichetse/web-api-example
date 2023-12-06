@@ -73,6 +73,7 @@ public class CustomerController : MyController
 		
 		_mapper.Map(change, item);
 		_Customerepository.Update(item);
+		
 		_Customerepository.Commit();
 
 		return Ok();

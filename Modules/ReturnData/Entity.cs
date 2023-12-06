@@ -13,5 +13,6 @@ public class ExampleConfig : IEntityTypeConfiguration<Marge>
 {
 	public void Configure(EntityTypeBuilder<Marge> builder)
 	{
+		
 	}
 }

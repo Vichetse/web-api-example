@@ -19,7 +19,6 @@ public class InsertExampleRequest
     public string? CountryCode { get; set; }
 }
 
-
 public class UpdateExampleRequest
 {
     public string? Name { get; set; }

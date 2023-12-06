@@ -11,6 +11,7 @@ public class Customer : Entity
     public string Address { get; set; } = null!;
 }
 
+
 public class ExampleConfig : IEntityTypeConfiguration<Customer>
 {
 	public void Configure(EntityTypeBuilder<Customer> builder)

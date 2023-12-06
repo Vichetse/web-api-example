@@ -9,5 +9,6 @@ public class ExampleMapper : Profile
         CreateMap<Example, GetExampleResponse>();
         CreateMap<InsertExampleRequest, Example>();
         CreateMap<UpdateExampleRequest, Example>();
+        
     }
 }

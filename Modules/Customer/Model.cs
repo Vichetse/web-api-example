@@ -16,7 +16,6 @@ public class InsertCustomer
     public string Address { get; set; } = null!;
 }
 
-
     public class UpdateCustomer
 {
         public string Name { get; set; } = null!;

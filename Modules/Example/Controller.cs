@@ -20,6 +20,7 @@ public class ExampleController : MyController
 		_mapper = mapper;
 	}
 
+
 	[HttpGet("")]
 	public IActionResult Get()
 	{
@@ -28,6 +29,7 @@ public class ExampleController : MyController
 		return Ok(result);
 	}
 
+
 	[HttpGet("{id:guid}")]
 	public IActionResult GetById(Guid id)
 	{
@@ -35,6 +37,7 @@ public class ExampleController : MyController
 		var result = _mapper.Map<GetExampleResponse>(items);
 		return Ok(result);
 	}
+
 
 	[HttpPost]
 	public IActionResult Post([FromBody] InsertExampleRequest insertExampleRequest)
@@ -49,6 +52,7 @@ public class ExampleController : MyController
 		_repository.Commit();
 		return Ok();
 	}
+
 
 	[HttpPut("{id:guid}")]
 	public IActionResult Update(Guid id,[FromBody] UpdateExampleRequest change)
@@ -85,6 +89,8 @@ public class ExampleController : MyController
 
 		return Ok();
 	}
+
+	
 	[HttpDelete("{id:guid}")]
 	public IActionResult Delete(Guid id)
 	{

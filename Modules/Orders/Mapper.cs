@@ -9,6 +9,5 @@ public class OrdersMapper : Profile
         CreateMap<Order, GetOrder>();
         CreateMap<InsertOrder, Order>();
         CreateMap<UpdateOrder, Order>();
-        
     }
 }

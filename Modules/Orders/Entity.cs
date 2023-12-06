@@ -11,10 +11,10 @@ public class Order : Entity
 	public string TypeDrink { get; set; } = null!;
 
 }
-
 public class ExampleConfig : IEntityTypeConfiguration<Order>
 {
 	public void Configure(EntityTypeBuilder<Order> builder)
 	{
+		
 	}
 }

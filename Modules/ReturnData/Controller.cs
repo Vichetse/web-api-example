@@ -23,20 +23,21 @@ public class MargeController : MyController
 	public IActionResult GetOrdersByCustomerId(Guid customerId)
 	{
 		var customer = _customerRepository.GetSingle(e => e.Id == customerId);
-		var resultcustomer = _mapper.Map<Get>(customer);
+		var resultcustomer = _mapper.Map<Marge>(customer);
 		if (customer == null)
 		{
 			return NotFound();
 		}
 
 		var order = _OrderRepository.GetSingle(e => e.Id == customerId);
-		var resultorders = _mapper.Map<Get>(order);
+		var resultorders = _mapper.Map<Marge>(order);
 		if (customer == null)
 		{
 			return NotFound();
 		}
+_OrderRepository.Add(order);
 
-		_mapper.Map(resultcustomer, resultorders);
+		_customerRepository.Add(customer);
 		_customerRepository.Commit();
 		return Ok();
 	}

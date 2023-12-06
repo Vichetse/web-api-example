@@ -11,6 +11,5 @@ public class MargeRepository : Repository<Marge>, IExampleRepositoryMarge
 {
 	public MargeRepository(MyDbContext context) : base(context)
 	{
-		
 	}
 }

@@ -7,13 +7,11 @@ public class GetOrder
     public string TypeDrink { get; set; } = null!;
 }
  
- 
 public class InsertOrder
 {
     public string TypeFood { get; set; } = null!;
     public string TypeDrink { get; set; } = null!;
 }
-
 
     public class UpdateOrder
 {
