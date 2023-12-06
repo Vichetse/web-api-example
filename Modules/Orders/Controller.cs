@@ -9,21 +9,18 @@ namespace WebApi.Modules.Orders;
 public class OrdersController : MyController
 {
 	private readonly IMapper _mapper;
-	private readonly IExampleRepository _repository;
+	private readonly IExampleRepositoryOrder _Orderrepository;
 
-	public OrdersController(
-		IExampleRepository repository,
-        IMapper mapper
-        )
+	public OrdersController(IExampleRepositoryOrder repository,IMapper mapper)
 	{
-		_repository = repository;
+		_Orderrepository = repository;
 		_mapper = mapper;
 	}
 
 	[HttpGet("")]
 	public IActionResult Get()
 	{
-		var items = _repository.GetAll();
+		var items = _Orderrepository.GetAll();
 		var result = _mapper.ProjectTo<GetOrder>(items);
 		return Ok(result);
 	}
@@ -31,7 +28,7 @@ public class OrdersController : MyController
 	[HttpGet("{id:guid}")]
 	public IActionResult GetById(Guid id)
 	{
-		var items = _repository.GetSingle(e => e.Id == id);
+		var items = _Orderrepository.GetSingle(e => e.Id == id);
 		var result = _mapper.Map<GetOrder>(items);
 		return Ok(result);
 	}
@@ -45,15 +42,15 @@ public class OrdersController : MyController
 		}
 		var items = _mapper.Map<Order>(insertOrder);
 
-		_repository.Add(items);
-		_repository.Commit();
+		_Orderrepository.Add(items);
+		_Orderrepository.Commit();
 		return Ok();
 	}
 
 	[HttpPut("{id:guid}")]
 	public IActionResult Update(Guid id,[FromBody] UpdateOrder change)
 	{
-		var item = _repository.GetSingle(e => e.Id == id);
+		var item = _Orderrepository.GetSingle(e => e.Id == id);
 		if (item == null)
 		{
 			return NotFound("Item not found");
@@ -69,22 +66,22 @@ public class OrdersController : MyController
 		}
 		
 		_mapper.Map(change, item);
-		_repository.Update(item);
-		_repository.Commit();
+		_Orderrepository.Update(item);
+		_Orderrepository.Commit();
 
 		return Ok();
 	}
 	[HttpDelete("{id:guid}")]
 	public IActionResult Delete(Guid id)
 	{
-		var item = _repository.GetSingle(e => e.Id == id);
+		var item = _Orderrepository.GetSingle(e => e.Id == id);
 		if (item == null)
 		{
 			return NotFound("Item not found");
 		}
 
-		_repository.Remove(item);
-		_repository.Commit();
+		_Orderrepository.Remove(item);
+		_Orderrepository.Commit();
 
 		return Ok();
 	}

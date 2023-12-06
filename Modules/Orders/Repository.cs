@@ -11,6 +11,5 @@ public class OrderRepository : Repository<Order>, IExampleRepositoryOrder
 {
 	public OrderRepository(MyDbContext context) : base(context)
 	{
-		
 	}
 }

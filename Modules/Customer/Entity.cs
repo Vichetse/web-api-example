@@ -2,7 +2,6 @@ using WebApi.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-
 namespace WebApi.Modules.Customer;
 
 public class Customer : Entity
@@ -16,5 +15,6 @@ public class ExampleConfig : IEntityTypeConfiguration<Customer>
 {
 	public void Configure(EntityTypeBuilder<Customer> builder)
 	{
+		
 	}
 }

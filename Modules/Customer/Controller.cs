@@ -9,21 +9,21 @@ namespace WebApi.Modules.Customer;
 public class CustomerController : MyController
 {
 	private readonly IMapper _mapper;
-	private readonly IExampleRepository _repository;
+	private readonly IExampleRepositoryCustomer _Customerepository;
 
 	public CustomerController(
-		IExampleRepository repository,
+		IExampleRepositoryCustomer repository,
         IMapper mapper
         )
 	{
-		_repository = repository;
+		_Customerepository = repository;
 		_mapper = mapper;
 	}
 
 	[HttpGet("")]
 	public IActionResult Get()
 	{
-		var items = _repository.GetAll();
+		var items = _Customerepository.GetAll();
 		var result = _mapper.ProjectTo<GetCustomer>(items);
 		return Ok(result);
 	}
@@ -31,7 +31,7 @@ public class CustomerController : MyController
 	[HttpGet("{id:guid}")]
 	public IActionResult GetById(Guid id)
 	{
-		var items = _repository.GetSingle(e => e.Id == id);
+		var items = _Customerepository.GetSingle(e => e.Id == id);
 		var result = _mapper.Map<GetCustomer>(items);
 		return Ok(result);
 	}
@@ -45,15 +45,14 @@ public class CustomerController : MyController
 		}
 		var items = _mapper.Map<Customer>(insertCustomer);
 
-		_repository.Add(items);
-		_repository.Commit();
+		_Customerepository.Add(items);
+		_Customerepository.Commit();
 		return Ok();
 	}
-
 	[HttpPut("{id:guid}")]
 	public IActionResult Update(Guid id,[FromBody] UpdateCustomer change)
 	{
-		var item = _repository.GetSingle(e => e.Id == id);
+		var item = _Customerepository.GetSingle(e => e.Id == id);
 		if (item == null)
 		{
 			return NotFound("Item not found");
@@ -73,22 +72,22 @@ public class CustomerController : MyController
 		}
 		
 		_mapper.Map(change, item);
-		_repository.Update(item);
-		_repository.Commit();
+		_Customerepository.Update(item);
+		_Customerepository.Commit();
 
 		return Ok();
 	}
 	[HttpDelete("{id:guid}")]
 	public IActionResult Delete(Guid id)
 	{
-		var item = _repository.GetSingle(e => e.Id == id);
+		var item = _Customerepository.GetSingle(e => e.Id == id);
 		if (item == null)
 		{
 			return NotFound("Item not found");
 		}
 
-		_repository.Remove(item);
-		_repository.Commit();
+		_Customerepository.Remove(item);
+		_Customerepository.Commit();
 
 		return Ok();
 	}

@@ -7,6 +7,7 @@ public class GetCustomer
     public string Phone { get; set; } = null!;
     public string Address { get; set; } = null!;
 }
+
  
 public class InsertCustomer
 {
@@ -14,6 +15,7 @@ public class InsertCustomer
     public string Phone { get; set; } = null!;
     public string Address { get; set; } = null!;
 }
+
 
     public class UpdateCustomer
 {

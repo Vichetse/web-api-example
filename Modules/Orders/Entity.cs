@@ -6,8 +6,10 @@ namespace WebApi.Modules.Orders;
 
 public class Order : Entity
 {
-	public string TypeFood { get; set; }= null!;
-    public string TypeDrink { get; set; } = null!;
+
+	public string TypeFood { get; set; } = null!;
+	public string TypeDrink { get; set; } = null!;
+
 }
 
 public class ExampleConfig : IEntityTypeConfiguration<Order>
