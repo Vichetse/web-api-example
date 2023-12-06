@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\eventhub\\web-api\\WebApi.csproj": {}
+    "/Users/pisethseng/Documents/SENG VICHET/web-api-example/WebApi.csproj": {}
   },
   "projects": {
-    "D:\\eventhub\\web-api\\WebApi.csproj": {
+    "/Users/pisethseng/Documents/SENG VICHET/web-api-example/WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\eventhub\\web-api\\WebApi.csproj",
+        "projectUniqueName": "/Users/pisethseng/Documents/SENG VICHET/web-api-example/WebApi.csproj",
         "projectName": "WebApi",
-        "projectPath": "D:\\eventhub\\web-api\\WebApi.csproj",
-        "packagesPath": "C:\\Users\\Ratana\\.nuget\\packages\\",
-        "outputPath": "D:\\eventhub\\web-api\\obj\\",
+        "projectPath": "/Users/pisethseng/Documents/SENG VICHET/web-api-example/WebApi.csproj",
+        "packagesPath": "/Users/pisethseng/.nuget/packages/",
+        "outputPath": "/Users/pisethseng/Documents/SENG VICHET/web-api-example/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Ratana\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/pisethseng/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -67,6 +67,10 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[7.0.3, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
             }
           },
           "imports": [
@@ -88,7 +92,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.403/RuntimeIdentifierGraph.json"
         }
       }
     }
