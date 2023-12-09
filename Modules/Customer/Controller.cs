@@ -57,16 +57,17 @@ public class CustomerController : MyController
 		{
 			return NotFound("Item not found");
 		}
+		// old 1 new 5
 
-		if (change.Name == null || change.Name == "")
+		if (change.Name != "")
 		{
 			change.Name = item.Name;	
 		}
-		if (change.Phone == null || change.Phone == "")
+		if (change.Phone != "")
 		{
 			change.Phone = item.Phone;
 		}
-		if (change.Address == null || change.Address == "")
+		if (change.Address != "")
 		{
 			change.Address = item.Address;
 		}

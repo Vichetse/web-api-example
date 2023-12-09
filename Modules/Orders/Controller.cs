@@ -57,15 +57,10 @@ public class OrdersController : MyController
 			return NotFound("Item not found");
 		}
 
-		if (change.TypeFood == null || change.TypeFood == "")
+		if (change.Name == null || change.Name == "")
 		{
-			change.TypeFood = item.TypeFood;	
+			change.Name = item.Name;	
 		}
-		if (change.TypeDrink == null || change.TypeDrink == "")
-		{
-			change.TypeDrink = item.TypeDrink;
-		}
-		
 		_mapper.Map(change, item);
 		_Orderrepository.Update(item);
 		_Orderrepository.Commit();
