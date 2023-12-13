@@ -8,25 +8,18 @@ namespace WebApi.Modules.Customer;
 public class CustomerController : MyController
 {
 	private readonly IMapper _mapper;
-	private readonly IExampleRepositoryCustomer _Customerepository;
-	private readonly IExampleRepositoryOrder _Orderrepository;
+	private readonly IRepositoryCustomer _Customerepository;
 
-	public CustomerController(
-		IExampleRepositoryCustomer repository,
-        IMapper mapper,
-		IExampleRepositoryOrder order
-        )
+	public CustomerController(IRepositoryCustomer repository,IMapper mapper,IRepositoryCustomer order)
 	{
 		_Customerepository = repository;
 		_mapper = mapper;
-		_Orderrepository = order;
 	}
 
 	[HttpGet("")]
 	public IActionResult Get()
 	{
 		var items = _Customerepository.GetAll();
-		// var orderedItems = items.OrderBy(e => e.Id);
 		var result = _mapper.ProjectTo<GetCustomer>(items);
 		return Ok(result);
 	}
@@ -35,17 +28,9 @@ public class CustomerController : MyController
 	public IActionResult GetById(Guid id)
 	{
 		var items = _Customerepository.GetSingle(e => e.Id == id);
-		var customers = _mapper.Map<GetCustomer>(items);
-		
-
-		var orders = _Orderrepository.FindBy(e => e.Id == id);
-		var itemorder = _mapper.ProjectTo<GetOrder>(orders);
-
-
-
-		return Ok();
+		var result = _mapper.Map<GetCustomer>(items);
+		return Ok(result);
 	}
-
 
 	[HttpPost]
 	public IActionResult Post([FromBody] InsertCustomer insertCustomer)
@@ -59,6 +44,7 @@ public class CustomerController : MyController
 		_Customerepository.Add(items);
 		_Customerepository.Commit();
 		return Ok();
+
 	}
 	[HttpPut("{id:guid}")]
 	public IActionResult Update(Guid id,[FromBody] UpdateCustomer change)

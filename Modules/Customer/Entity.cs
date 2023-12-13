@@ -15,7 +15,7 @@ public class Customer : Entity
 
 }
 
-public class ExampleConfig : IEntityTypeConfiguration<Customer>
+public class CustomerConfig : IEntityTypeConfiguration<Customer>
 {
 	public void Configure(EntityTypeBuilder<Customer> builder)
 	{

@@ -11,7 +11,7 @@ public class Order : Entity
 	public Customer.Customer Customer { get; set; } = null!;
 
 }
-public class ExampleConfig : IEntityTypeConfiguration<Order>
+public class OrderConfig : IEntityTypeConfiguration<Order>
 {
 	public void Configure(EntityTypeBuilder<Order> builder)
 	{

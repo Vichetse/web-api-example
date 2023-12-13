@@ -3,11 +3,11 @@ using WebApi.Core;
 
 namespace WebApi.Modules.Customer;
 
-public interface IExampleRepositoryCustomer : IRepository<Customer>
+public interface IRepositoryCustomer : IRepository<Customer>
 {
 	
 }
-public class CustomerRepository : Repository<Customer>, IExampleRepositoryCustomer
+public class CustomerRepository : Repository<Customer>, IRepositoryCustomer
 {
 	public CustomerRepository(MyDbContext context) : base(context)
 	{

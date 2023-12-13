@@ -3,11 +3,11 @@ using WebApi.Core;
 
 namespace WebApi.Modules.Orders;
 
-public interface IExampleRepositoryOrder : IRepository<Order>
+public interface IRepositoryOrder : IRepository<Order>
 {
 
 }
-public class OrderRepository : Repository<Order>, IExampleRepositoryOrder
+public class OrderRepository : Repository<Order>, IRepositoryOrder
 {
 	public OrderRepository(MyDbContext context) : base(context)
 	{

@@ -9,11 +9,11 @@ namespace WebApi.Modules.Orders;
 public class OrdersController : MyController
 {
 	private readonly IMapper _mapper;
-	private readonly IExampleRepositoryOrder _Orderrepository;
+	private readonly IRepositoryOrder _Orderrepository;
 
-	public OrdersController(IExampleRepositoryOrder repository,IMapper mapper)
+	public OrdersController(IRepositoryOrder repositoryorders,IMapper mapper)
 	{
-		_Orderrepository = repository;
+		_Orderrepository = repositoryorders;
 		_mapper = mapper;
 	}
 
@@ -24,7 +24,6 @@ public class OrdersController : MyController
 		var result = _mapper.ProjectTo<GetOrder>(items);
 		return Ok(result);
 	}
-
 
 	[HttpGet("GetByUserId/{customerId:guid}")]
 	public IActionResult GetByUserId(Guid customerId)
@@ -55,7 +54,6 @@ public class OrdersController : MyController
 		_Orderrepository.Commit();
 		return Ok();
 	}
-	
 
 	[HttpPut("{id:guid}")]
 	public IActionResult Update(Guid id,[FromBody] UpdateOrder change)
