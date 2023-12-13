@@ -25,6 +25,15 @@ public class OrdersController : MyController
 		return Ok(result);
 	}
 
+
+	[HttpGet("GetByUserId/{customerId:guid}")]
+	public IActionResult GetByUserId(Guid customerId)
+	{
+		var items = _Orderrepository.FindBy(e => e.CustomerId == customerId);
+		var result = _mapper.ProjectTo<GetOrder>(items);
+		return Ok(result);
+	}
+
 	[HttpGet("{id:guid}")]
 	public IActionResult GetById(Guid id)
 	{
