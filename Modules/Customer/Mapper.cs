@@ -9,5 +9,6 @@ public class CustomerMapper : Profile
         CreateMap<Customer, GetCustomer>();
         CreateMap<InsertCustomer, Customer>();
         CreateMap<UpdateCustomer, Customer>();
+          CreateMap<DeleteCustomer, Customer>();
     }
 }

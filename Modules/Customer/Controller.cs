@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Core;
 using WebApi.Modules.Orders;
@@ -10,12 +11,11 @@ public class CustomerController : MyController
 	private readonly IMapper _mapper;
 	private readonly IRepositoryCustomer _Customerepository;
 
-	public CustomerController(IRepositoryCustomer repository,IMapper mapper,IRepositoryCustomer order)
+	public CustomerController(IRepositoryCustomer repository, IMapper mapper, IRepositoryCustomer order)
 	{
 		_Customerepository = repository;
 		_mapper = mapper;
 	}
-
 	[HttpGet("")]
 	public IActionResult Get()
 	{
@@ -46,15 +46,16 @@ public class CustomerController : MyController
 		return Ok();
 
 	}
+
 	[HttpPut("{id:guid}")]
-	public IActionResult Update(Guid id,[FromBody] UpdateCustomer change)
+	public IActionResult Update(Guid id, [FromBody] UpdateCustomer change)
 	{
 		var item = _Customerepository.GetSingle(e => e.Id == id);
 		if (item == null)
 		{
 			return NotFound("Item not found");
 		}
-		// old 1 new 5
+
 
 		if (change.Name == null || change.Name == "")
 		{
@@ -71,21 +72,24 @@ public class CustomerController : MyController
 
 		_mapper.Map(change, item);
 		_Customerepository.Update(item);
-		
+
 		_Customerepository.Commit();
 
 		return Ok();
 	}
+
 	[HttpDelete("{id:guid}")]
 	public IActionResult Delete(Guid id)
 	{
-		var item = _Customerepository.GetSingle(e => e.Id == id);
-		if (item == null)
+		var existed = _Customerepository.Existed(e => e.Id == id);
+		if (!existed)
 		{
 			return NotFound("Item not found");
 		}
 
-		_Customerepository.Remove(item);
+		var items = _Customerepository.GetSingle(e => e.Id == id);
+		items!.DeletedAt = DateTime.UtcNow;
+		_Customerepository.Update(items!);
 		_Customerepository.Commit();
 
 		return Ok();
